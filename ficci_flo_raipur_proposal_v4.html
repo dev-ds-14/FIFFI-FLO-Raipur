@@ -1,0 +1,259 @@
+
+<style>
+  .wrap { background: #111010; color: #e8e4df; font-family: 'DM Sans', sans-serif; font-size: 13px; line-height: 1.6; max-width: 680px; border-radius: 10px; overflow: hidden; border: 1px solid #2e2c2a; }
+  .banner { background: #F5A623; color: #111; font-size: 11px; font-weight: 700; padding: 8px 20px; text-align: center; letter-spacing: 0.03em; }
+  .hdr { padding: 28px 28px 20px; border-bottom: 1px solid #2e2c2a; }
+  .meta-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .meta-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #7a756f; border: 1px solid #2e2c2a; padding: 3px 10px; border-radius: 4px; }
+  .hdr h1 { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 0.95; color: #fff; letter-spacing: 0.02em; margin-bottom: 8px; }
+  .hdr h1 span { color: #F5A623; }
+  .hdr-sub { font-size: 13px; color: #7a756f; max-width: 480px; line-height: 1.6; margin-bottom: 16px; }
+  .specs { display: flex; gap: 24px; flex-wrap: wrap; }
+  .spec { display: flex; flex-direction: column; gap: 1px; }
+  .spec-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #7a756f; }
+  .spec-val { font-size: 13px; font-weight: 600; color: #e8e4df; }
+  .pillar { padding: 24px 28px 0; }
+  .pillar-hdr { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #2e2c2a; }
+  .pnum { background: #F5A623; color: #111; font-family: 'Bebas Neue', sans-serif; font-size: 11px; padding: 2px 8px; border-radius: 3px; flex-shrink: 0; margin-top: 3px; letter-spacing: 0.06em; }
+  .pillar-kicker { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #F5A623; margin-bottom: 2px; }
+  .pillar-title { font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; color: #fff; letter-spacing: 0.02em; }
+  .pillar-desc { font-size: 12px; color: #7a756f; margin-top: 4px; line-height: 1.6; }
+  .mod { background: #1a1918; border: 1px solid #2e2c2a; border-radius: 7px; padding: 14px 16px; margin-bottom: 10px; }
+  .mod-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; flex-wrap: wrap; gap: 6px; }
+  .mod-name { font-size: 13px; font-weight: 600; color: #e8e4df; }
+  .tags { display: flex; gap: 5px; flex-wrap: wrap; }
+  .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; }
+  .t-fw { background: rgba(224,82,82,0.15); color: #e05252; }
+  .t-lv { background: rgba(245,166,35,0.15); color: #F5A623; }
+  .t-tl { background: rgba(91,155,213,0.15); color: #5b9bd5; }
+  .t-ho { background: rgba(82,183,136,0.15); color: #52b788; }
+  .t-fd { background: rgba(160,130,210,0.15); color: #a08cd6; }
+  ul.bul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  ul.bul li { font-size: 12px; color: #7a756f; padding-left: 14px; position: relative; line-height: 1.5; }
+  ul.bul li::before { content: '—'; position: absolute; left: 0; color: #3a3836; font-size: 11px; }
+  .fire-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 2px; }
+  .fire-item { background: #111010; border: 1px solid #2e2c2a; border-radius: 6px; padding: 12px 14px; }
+  .fire-letter { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #F5A623; line-height: 1; margin-bottom: 2px; }
+  .fire-word { font-size: 12px; font-weight: 700; color: #e8e4df; margin-bottom: 4px; }
+  .fire-desc { font-size: 11.5px; color: #7a756f; line-height: 1.5; }
+  .divider { height: 1px; background: #2e2c2a; margin: 20px 28px 0; }
+  .pillar-end { padding-bottom: 24px; }
+  .out-section { padding: 24px 28px; border-top: 1px solid #2e2c2a; }
+  .sec-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.04em; color: #e8e4df; margin-bottom: 12px; }
+  .out-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .out-item { background: #1a1918; border: 1px solid #2e2c2a; border-radius: 7px; padding: 12px 14px; font-size: 12px; color: #7a756f; line-height: 1.5; }
+  .out-item strong { display: block; font-size: 12.5px; color: #e8e4df; margin-bottom: 2px; }
+  .comm { padding: 0 28px 28px; }
+  .comm-inner { background: #1a1918; border: 1px solid rgba(245,166,35,0.3); border-radius: 9px; padding: 20px 22px; margin-top: 20px; display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+  .comm-left { display: flex; flex-direction: column; gap: 3px; }
+  .c-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7a756f; }
+  .c-amt { font-family: 'Bebas Neue', sans-serif; font-size: 44px; line-height: 1; color: #F5A623; letter-spacing: 0.02em; }
+  .c-note { font-size: 11px; color: #7a756f; }
+  .comm-right { flex: 1; min-width: 160px; }
+  .inc-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #7a756f; margin-bottom: 8px; }
+  ul.inc { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  ul.inc li { font-size: 12px; color: #7a756f; display: flex; align-items: flex-start; gap: 7px; }
+  ul.inc li::before { content: '✓'; color: #F5A623; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+  .foot { border-top: 1px solid #2e2c2a; padding: 14px 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+  .foot p { font-size: 11px; color: #7a756f; }
+  .foot .brand { color: #F5A623; font-weight: 600; }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<div class="wrap">
+  <div class="banner">Total Investment: ₹1,50,000 (Incl. GST) + Conveyance &nbsp;·&nbsp; 3-Hour Onsite Session</div>
+
+  <div class="hdr">
+    <div class="meta-row">
+      <span class="meta-tag">FICCI FLO Raipur</span>
+      <span class="meta-tag">AI Masterclass</span>
+      <span class="meta-tag">Digital Scholar</span>
+    </div>
+    <h1>AI Mastery<br><span>for Leaders</span></h1>
+    <p class="hdr-sub">A 3-hour intensive that takes your members from AI awareness to confident, day-one execution — across literacy, generative tools, and the Claude ecosystem.</p>
+    <div class="specs">
+      <div class="spec"><span class="spec-label">Duration</span><span class="spec-val">3 Hours</span></div>
+      <div class="spec"><span class="spec-label">Format</span><span class="spec-val">Onsite</span></div>
+      <div class="spec"><span class="spec-label">Audience</span><span class="spec-val">Business Leaders & Entrepreneurs</span></div>
+    </div>
+  </div>
+
+  <!-- PILLAR 1 -->
+  <div class="pillar">
+    <div class="pillar-hdr">
+      <div class="pnum">PILLAR 01</div>
+      <div>
+        <p class="pillar-kicker">Foundation · Frameworks</p>
+        <h2 class="pillar-title">AI Literacy & Prompt Engineering</h2>
+        <p class="pillar-desc">Build a shared vocabulary — then turn it into structured output using Rishi's proprietary FIRE Framework.</p>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">GenAI Basics</span><div class="tags"><span class="tag t-fd">Foundational</span></div></div>
+      <ul class="bul">
+        <li>How LLMs work — explained without jargon</li>
+        <li>The shift from "asking AI" to "delegating to AI"</li>
+        <li>Which AI tool for which task — Claude, ChatGPT, Gemini, Perplexity</li>
+        <li>Outputs, hallucinations, limitations, and data responsibility</li>
+      </ul>
+    </div>
+
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">The FIRE Framework</span><div class="tags"><span class="tag t-fw">Proprietary</span><span class="tag t-lv">Live Demo</span></div></div>
+      <p style="font-size:11.5px; color:#7a756f; margin-bottom:10px; line-height:1.5;">Four moves to write prompts that actually work. Use FIRE every time you open Claude, ChatGPT, or Gemini. The output changes the moment your prompt does.</p>
+      <div class="fire-grid">
+        <div class="fire-item">
+          <div class="fire-letter">F</div>
+          <div class="fire-word">Frame the role</div>
+          <div class="fire-desc">Tell AI who it should become. "You are a nutritionist with 20 years of experience."</div>
+        </div>
+        <div class="fire-item">
+          <div class="fire-letter">I</div>
+          <div class="fire-word">Instruct the task</div>
+          <div class="fire-desc">Say what you want done in one clean sentence. Verb first. No fluff.</div>
+        </div>
+        <div class="fire-item">
+          <div class="fire-letter">R</div>
+          <div class="fire-word">Reference the context</div>
+          <div class="fire-desc">Give it details — audience, goal, constraints, and what not to do.</div>
+        </div>
+        <div class="fire-item">
+          <div class="fire-letter">E</div>
+          <div class="fire-word">Express the format</div>
+          <div class="fire-desc">How should the answer look? Table, bullets, email, script, 200 words.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">Prompting for Business Tasks</span><div class="tags"><span class="tag t-ho">Hands-On</span></div></div>
+      <ul class="bul">
+        <li>Applying FIRE to real tasks — emails, reports, SOPs, and presentations</li>
+        <li>Role-based prompting — AI as strategist, analyst, and advisor</li>
+        <li>Generating executive summaries and strategic insights</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PILLAR 2 -->
+  <div class="pillar">
+    <div class="pillar-hdr">
+      <div class="pnum">PILLAR 02</div>
+      <div>
+        <p class="pillar-kicker">Tools · Creation · Scale</p>
+        <h2 class="pillar-title">Generative AI</h2>
+        <p class="pillar-desc">The full GenAI tool landscape — content, visuals, video, voice, and research.</p>
+      </div>
+    </div>
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">AI Image & Visual Content</span><div class="tags"><span class="tag t-tl">Tools</span><span class="tag t-lv">Live Demo</span></div></div>
+      <ul class="bul">
+        <li>NanoBanana — the only AI that renders text correctly on images</li>
+        <li>Generating campaign creatives, social graphics, and product visuals</li>
+        <li>Creating presentations from a single prompt using Gamma</li>
+      </ul>
+    </div>
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">AI Video & Voice</span><div class="tags"><span class="tag t-tl">Tools</span><span class="tag t-lv">Live Demo</span></div></div>
+      <ul class="bul">
+        <li>HeyGen — AI avatars and video translation with lip sync</li>
+        <li>Google Veo / Kling / Higgsfield — video generation from text and images</li>
+        <li>ElevenLabs — voice cloning and text-to-speech for content at scale</li>
+      </ul>
+    </div>
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">Research & Insights</span><div class="tags"><span class="tag t-ho">Hands-On</span><span class="tag t-tl">Tools</span></div></div>
+      <ul class="bul">
+        <li>NotebookLM — synthesise multiple sources into verified insights</li>
+        <li>Deep Research — AI-powered competitive analysis and market research</li>
+        <li>Perplexity — AI-powered search with cited, reliable sources</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PILLAR 3 -->
+  <div class="pillar pillar-end">
+    <div class="pillar-hdr">
+      <div class="pnum">PILLAR 03</div>
+      <div>
+        <p class="pillar-kicker">Delegation · Memory · Systems</p>
+        <h2 class="pillar-title">Claude Mastery</h2>
+        <p class="pillar-desc">Build memory systems, connect your tools, and create workflows that run without you.</p>
+      </div>
+    </div>
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">The Claude Ecosystem</span><div class="tags"><span class="tag t-lv">Live Demo</span></div></div>
+      <ul class="bul">
+        <li>Claude vs ChatGPT vs Gemini — honest comparison, pick winners per task</li>
+        <li>Projects, Artifacts, and Memory — how Claude stores context about you</li>
+        <li>Document analysis, web search, and extended thinking mode</li>
+      </ul>
+    </div>
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">Skills, Memory & the TAR Framework</span><div class="tags"><span class="tag t-fw">Proprietary</span><span class="tag t-ho">Hands-On</span></div></div>
+      <ul class="bul">
+        <li>The 3-layer memory system: global preferences, project context, reusable Skills</li>
+        <li>TAR Framework — Trigger, Action, Result — build once, Claude executes every time</li>
+        <li>Hands-on: build your first Claude Skill during the session</li>
+      </ul>
+    </div>
+    <div class="mod">
+      <div class="mod-top"><span class="mod-name">Connectors & MCP</span><div class="tags"><span class="tag t-tl">Tools</span><span class="tag t-lv">Live Demo</span></div></div>
+      <ul class="bul">
+        <li>Connecting Claude to Gmail, Google Drive, Calendar, Notion, and Slack</li>
+        <li>MCP Servers — the "USB-C for AI" that plugs Claude into any business data</li>
+        <li>Live build: "Every Monday, pull my calendar, summarise the week, draft my update"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OUTCOMES -->
+  <div class="out-section">
+    <h2 class="sec-title">What Members Walk Away With</h2>
+    <div class="out-grid">
+      <div class="out-item"><strong>A Personal FIRE Prompt Library</strong>FIRE-based prompts for emails, reports, and decisions — ready Day 1.</div>
+      <div class="out-item"><strong>Working Knowledge of 10+ AI Tools</strong>Clear map of which tool to use for which task.</div>
+      <div class="out-item"><strong>A Claude Setup That Works For You</strong>Memory, projects, and connectors configured.</div>
+      <div class="out-item"><strong>Shared AI Vocabulary</strong>Common language for evaluating and adopting AI across the group.</div>
+      <div class="out-item"><strong>Content Creation Superpowers</strong>Visuals, video, voice, and research — produced in-house, at speed.</div>
+      <div class="out-item"><strong>Confidence to Lead AI Conversations</strong>Clarity on limits, governance, and when not to use AI.</div>
+    </div>
+  </div>
+
+  <!-- COMMERCIALS -->
+  <div class="comm">
+    <div style="padding-top: 20px; border-top: 1px solid #2e2c2a;">
+      <p style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#7a756f; margin-bottom:4px;">Investment</p>
+      <p style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.04em; color:#e8e4df;">Programme Commercials</p>
+    </div>
+    <div class="comm-inner">
+      <div class="comm-left">
+        <span class="c-label">Total Investment</span>
+        <span class="c-amt">₹1,50,000</span>
+        <span class="c-note">Inclusive of GST</span>
+        <span class="c-note">+ Conveyance at actuals</span>
+      </div>
+      <div class="comm-right">
+        <p class="inc-title">Includes</p>
+        <ul class="inc">
+          <li>Full 3-hour onsite session by Rishi Jain</li>
+          <li>Custom training deck for FICCI FLO Raipur</li>
+          <li>FIRE prompt template library (digital handout)</li>
+          <li>Claude workflow and Skills reference guide</li>
+          <li>Post-session open Q&A</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p>Prepared by <span class="brand">Digital Scholar</span> for FICCI FLO Raipur · May 2026</p>
+    <p>bde@digitalscholar.in &nbsp;·&nbsp; +91 86104 25655</p>
+  </div>
+</div>
